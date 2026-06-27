@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Jenkins, M.Ed. | School STEM, Robotics & AI Specialist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesque for tech, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Space Grotesque', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1', // Indigo
+                            600: '#4f46e5',
+                            accent: '#06b6d4', // Cyan
+                            emerald: '#10b981', // Emerald
+                        }
+                    },
+                    boxShadow: {
+                        'neon-indigo': '0 0 15px rgba(99, 102, 241, 0.4)',
+                        'neon-cyan': '0 0 15px rgba(6, 182, 212, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .font-tech { font-family: 'Space Grotesque', sans-serif; }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+        .glowing-text-indigo {
+            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+        }
+        .glowing-text-cyan {
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+        }
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 3rem 3rem;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-[#05070f] text-slate-100 font-sans selection:bg-brand-500 selection:text-white overflow-x-hidden grid-bg">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-card" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center shadow-neon-indigo group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-microchip text-white text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-tech font-bold text-lg tracking-wider bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">SARAH JENKINS</span>
+                    <span class="block text-[10px] text-brand-accent tracking-widest uppercase font-semibold">STEM, Robotics & AI Expert</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#about" class="text-slate-300 hover:text-white hover:glowing-text-indigo font-medium transition-all text-xs uppercase tracking-wider">About</a>
+                <a href="#sandbox" class="text-slate-300 hover:text-white hover:glowing-text-cyan font-medium transition-all text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="inline-block w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                    Playground
+                </a>
+                <a href="#skills" class="text-slate-300 hover:text-white hover:glowing-text-indigo font-medium transition-all text-xs uppercase tracking-wider">Skills</a>
+                <a href="#curriculum" class="text-slate-300 hover:text-white hover:glowing-text-indigo font-medium transition-all text-xs uppercase tracking-wider">Curriculum</a>
+                <a href="#quiz" class="text-slate-300 hover:text-white hover:glowing-text-indigo font-medium transition-all text-xs uppercase tracking-wider">CS Assessment</a>
+                <a href="#planner" class="text-brand-accent hover:text-white font-semibold transition-all text-xs uppercase tracking-wider flex items-center gap-1">
+                    <i class="fa-solid fa-wand-magic-sparkles animate-bounce"></i> AI Planner
+                </a>
+            </nav>
+
+            <!-- CTA Desktop Actions -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <button onclick="toggleChat()" class="p-2.5 rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-brand-500/10 hover:border-brand-500/30 transition-all text-slate-300 hover:text-white" title="Ask AI Desk">
+                    <i class="fa-solid fa-robot text-lg"></i>
+                </button>
+                <a href="#planner" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 font-tech font-semibold text-xs tracking-wider uppercase shadow-lg shadow-brand-600/20 transform hover:-translate-y-0.5 transition-all">
+                    Inquire Now
+                </a>
+            </div>
+
+            <!-- Mobile Drawer Button -->
+            <button class="lg:hidden p-2 text-slate-400 hover:text-white" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer menu -->
+        <div class="hidden lg:hidden border-t border-slate-800/80 bg-[#060811]/95 transition-all" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-4">
+                <a href="#about" onclick="closeMobileMenu()" class="block py-2 text-slate-300 font-medium">About Philosophy</a>
+                <a href="#sandbox" onclick="closeMobileMenu()" class="block py-2 text-brand-accent font-medium flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-accent animate-ping"></span>
+                    Interactive Sandbox
+                </a>
+                <a href="#skills" onclick="closeMobileMenu()" class="block py-2 text-slate-300 font-medium">Technical Skills</a>
+                <a href="#curriculum" onclick="closeMobileMenu()" class="block py-2 text-slate-300 font-medium">Curricula Matrix</a>
+                <a href="#quiz" onclick="closeMobileMenu()" class="block py-2 text-slate-300 font-medium">CS Readiness Quiz</a>
+                <a href="#planner" onclick="closeMobileMenu()" class="block py-2 text-brand-accent font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI Syllabus Planner
+                </a>
+                <div class="pt-4 flex items-center justify-between border-t border-slate-900">
+                    <button onclick="toggleChat(); closeMobileMenu();" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300">
+                        <i class="fa-solid fa-robot text-brand-accent"></i>
+                        <span class="text-xs font-semibold">Virtual Assistant</span>
+                    </button>
+                    <a href="#planner" onclick="closeMobileMenu()" class="px-5 py-2.5 rounded-xl bg-brand-600 text-white font-tech text-xs font-bold uppercase">
+                        Book Event
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+        <!-- Tech ambient glows -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-25">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-accent rounded-full filter blur-3xl animate-pulse" style="animation-delay: 3s"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Textual Context Area -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-accent text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                        Massachusetts Certified CS Educator
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight font-tech leading-[1.1] text-white">
+                        Let's Program <br>
+                        <span class="bg-gradient-to-r from-brand-500 via-brand-accent to-brand-emerald bg-clip-text text-transparent">The Next Generation</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        I am <strong class="text-white">Sarah Jenkins, M.Ed.</strong>—a dedicated classroom technology instructor with over 5 years of certified history crafting engaging physical computing courses, VEX robotics curricula, and playful AI explorations for school pupils.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#planner" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 font-tech font-bold text-sm uppercase tracking-wider text-center shadow-xl shadow-brand-500/25 transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <span>Syllabus Generator</span>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </a>
+                        <a href="#sandbox" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 font-tech font-bold text-sm uppercase tracking-wider text-center transition-all flex items-center justify-center gap-2">
+                            <span>Play Sandbox</span>
+                            <i class="fa-solid fa-gamepad"></i>
+                        </a>
+                    </div>
+
+                    <!-- Statistics grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-slate-900 text-center lg:text-left">
+                        <div>
+                            <div class="font-tech text-3xl font-extrabold text-white" id="stat-years">5+</div>
+                            <div class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">Years Teaching</div>
+                        </div>
+                        <div>
+                            <div class="font-tech text-3xl font-extrabold text-white" id="stat-students">3,500+</div>
+                            <div class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">Students Guided</div>
+                        </div>
+                        <div>
+                            <div class="font-tech text-3xl font-extrabold text-white" id="stat-workshops">120+</div>
+                            <div class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">School Workshops</div>
+                        </div>
+                        <div>
+                            <div class="font-tech text-3xl font-extrabold text-white" id="stat-challenges">4 VEX</div>
+                            <div class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-1">Active Teams</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Device Display Card -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-500 to-brand-accent opacity-20 blur-2xl animate-pulse"></div>
+                        <div class="absolute inset-3 rounded-full border-2 border-dashed border-slate-800 flex items-center justify-center animate-[spin_50s_linear_infinite]">
+                            <span class="absolute top-0 text-slate-600 font-tech text-[10px] tracking-widest uppercase">Robotics • Coding • ML</span>
+                        </div>
+                        
+                        <!-- Terminal Simulation Box -->
+                        <div class="absolute inset-8 rounded-3xl bg-slate-950/90 border border-slate-800 p-6 flex flex-col justify-between shadow-2xl overflow-hidden">
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                                <div class="flex items-center space-x-1.5">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                </div>
+                                <span class="font-tech text-[10px] text-brand-accent uppercase tracking-widest">RoboClass.py</span>
+                            </div>
+
+                            <div class="space-y-3 my-auto">
+                                <div class="font-mono text-[11px] text-slate-400 space-y-1">
+                                    <p class="text-brand-accent"><span class="text-slate-600">>>></span> import school_pathway</p>
+                                    <p class="text-brand-emerald"><span class="text-slate-600">>>></span> microbit.detect_gesture()</p>
+                                    <p class="text-amber-400"><span class="text-slate-600">>>></span> system.status == "LEARNING"</p>
+                                </div>
+                                
+                                <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800/60 flex items-center justify-between">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-[9px] text-slate-500 uppercase font-tech">Motor Output</span>
+                                        <span class="text-xs font-semibold text-white">VEX Motors: 80%</span>
+                                    </div>
+                                    <div class="flex gap-1">
+                                        <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
+                                        <span class="text-[10px] text-brand-emerald font-semibold uppercase">Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-800/80 pt-3 text-[10px] text-slate-500">
+                                <span>Firmware rev: 4.8</span>
+                                <span class="text-brand-accent font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-wifi animate-bounce"></i> Online
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Coding Sandbox Section -->
+    <section id="sandbox" class="py-24 bg-slate-950/60 border-y border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Live Classroom Demo</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">Interactive Robot Sandbox</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    This simulator mimics how Sarah teaches school pupils physical coordinates and logical commands. Direct our cute micro-bot to the CPU chip!
+                </p>
+            </div>
+
+            <!-- Sandbox Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Sandbox Canvas Area -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-6 flex flex-col justify-between min-h-[400px]">
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-accent animate-pulse"></span>
+                            <span class="text-xs font-tech font-bold uppercase tracking-wider text-slate-300">RoboGrid Simulator v1.0</span>
+                        </div>
+                        <button onclick="resetRobotDemo()" class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg hover:border-brand-500/30 transition-all text-[11px] text-slate-400 hover:text-white flex items-center gap-1">
+                            <i class="fa-solid fa-rotate-left"></i> Reset Bot
+                        </button>
+                    </div>
+
+                    <!-- Sandbox Canvas Board -->
+                    <div class="relative flex-1 bg-slate-950 rounded-2xl border border-slate-800/60 overflow-hidden min-h-[250px] flex items-center justify-center">
+                        <canvas id="robot-canvas" class="block max-w-full aspect-video md:aspect-[2/1]"></canvas>
+                        
+                        <!-- Completed Alert Panel -->
+                        <div id="sandbox-success" class="hidden absolute inset-0 bg-slate-950/90 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center space-y-4">
+                            <div class="w-14 h-14 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 flex items-center justify-center text-brand-emerald text-2xl shadow-neon-cyan">
+                                <i class="fa-solid fa-flag-checkered animate-bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-tech text-lg font-bold text-white">Target Reached! Goal Decoded!</h4>
+                                <p class="text-xs text-slate-500 max-w-xs mt-1">Excellent job. This demonstrates step-by-step logic and vector translation that Sarah delivers in classrooms.</p>
+                            </div>
+                            <button onclick="resetRobotDemo()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-tech font-bold text-xs rounded-xl transition-all">
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls and Command Terminal -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-tech text-lg font-bold text-white">Logical Controls</h3>
+                            <p class="text-xs text-slate-500 mt-1">Use responsive directional keys or trigger direct commands from the terminal input below.</p>
+                        </div>
+
+                        <!-- Direct buttons (Touch Screen Target sizes) -->
+                        <div class="grid grid-cols-3 gap-3 max-w-[240px] mx-auto">
+                            <div></div>
+                            <button onclick="stepRobot('UP')" class="h-12 w-full rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 flex items-center justify-center text-slate-300 transition-all shadow-md active:scale-95" title="Move Up">
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </button>
+                            <div></div>
+
+                            <button onclick="stepRobot('LEFT')" class="h-12 w-full rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 flex items-center justify-center text-slate-300 transition-all shadow-md active:scale-95" title="Move Left">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="stepRobot('DOWN')" class="h-12 w-full rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 flex items-center justify-center text-slate-300 transition-all shadow-md active:scale-95" title="Move Down">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <button onclick="stepRobot('RIGHT')" class="h-12 w-full rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 flex items-center justify-center text-slate-300 transition-all shadow-md active:scale-95" title="Move Right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Simulated Python Console -->
+                        <div class="space-y-2">
+                            <label class="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold font-tech">Python Command Prompt</label>
+                            <div class="bg-slate-950 rounded-xl border border-slate-800 p-3 font-mono text-xs flex items-center gap-2">
+                                <span class="text-brand-accent">>>></span>
+                                <input type="text" id="terminal-input" placeholder="Type: robot.moveRight() or robot.moveDown()" class="bg-transparent border-none text-slate-200 outline-none flex-1 focus:ring-0 placeholder-slate-700">
+                                <button onclick="runTerminalCommand()" class="text-brand-accent hover:text-white transition-colors">
+                                    <i class="fa-solid fa-arrow-turn-down"></i>
+                                </button>
+                            </div>
+                            <span class="block text-[10px] text-slate-600 leading-relaxed italic">Try simple commands like: <b class="text-slate-500">robot.moveUp()</b>, <b class="text-slate-500">robot.moveDown()</b>, <b class="text-slate-500">robot.moveLeft()</b>, or <b class="text-slate-500">robot.moveRight()</b></span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-900 mt-4 flex items-center justify-between text-xs text-slate-500">
+                        <span>Robot Grid: <b class="text-slate-400">10 x 5 Units</b></span>
+                        <span>Steps Taken: <b class="text-brand-accent font-semibold" id="sandbox-steps">0</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 relative group">
+                    <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-brand-600 to-brand-accent opacity-20 blur-xl group-hover:opacity-30 transition-all duration-300"></div>
+                    <div class="relative glass-card rounded-3xl p-8 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-brand-600 to-brand-accent flex items-center justify-center font-tech text-2xl font-bold text-white shadow-lg">
+                                SJ
+                            </div>
+                            <div>
+                                <h3 class="font-tech text-xl font-bold text-white leading-tight">Sarah Jenkins, M.Ed.</h3>
+                                <p class="text-xs text-slate-400">Director of Robotics, Oakridge Academy</p>
+                            </div>
+                        </div>
+
+                        <blockquote class="text-slate-300 text-sm leading-relaxed border-l-4 border-brand-500 pl-4 py-1 italic">
+                            "When kids configure robots, debug circuits, and test models, they aren't merely memorizing code—they are practicing creative thinking and building confidence for a tech-driven world."
+                        </blockquote>
+
+                        <div class="space-y-3 pt-2 text-xs text-slate-400 border-t border-slate-900">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-envelope text-brand-accent w-5 text-center"></i>
+                                <span class="hover:text-white transition-colors">sarah.jenkins.stem@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-brand-accent w-5 text-center"></i>
+                                <span>Boston Metro Area, MA</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-shield-halved text-brand-accent w-5 text-center"></i>
+                                <span>Criminal Record Check (CORI) Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Philosophy Content Column -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Educational Philosophy</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white leading-tight">Empowering Students Through Experiential Learning</h2>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        My classroom framework is structured on active engagement and exploratory play. Rather than focusing on dry technical jargon, we explore hardware integrations, construct custom Micro:bit arrays, prepare teams for competitive robotics leagues, and utilize responsible AI platforms.
+                    </p>
+
+                    <!-- Interactive Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/25 flex items-center justify-center text-brand-accent shrink-0">
+                                <i class="fa-solid fa-puzzle-piece text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-tech text-sm font-bold text-white">Block-to-Text Path</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Providing a logical stepping-stone from drag-and-drop block interfaces into standard textual coding syntax (Python, JS).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/25 flex items-center justify-center text-brand-accent shrink-0">
+                                <i class="fa-solid fa-robot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-tech text-sm font-bold text-white">Physical Circuitry</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Connecting theory to physical computing using IoT modules, breadboards, Arduino microcontrollers, and servo assemblies.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-brand-emerald shrink-0">
+                                <i class="fa-solid fa-brain text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-tech text-sm font-bold text-white">AI & ML Literacy</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Teaching prompt engineering, machine learning foundations, and moral responsibilities using Teachable Machine and AI platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 shrink-0">
+                                <i class="fa-solid fa-trophy text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-tech text-sm font-bold text-white">Competitive Coaching</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Guiding teamwork, iterative mechanical improvements, and standard programming documentation for VEX robotic tournaments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Skills Section -->
+    <section id="skills" class="py-24 bg-slate-950/60 border-y border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Skill Matrix</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">Pedagogical & Technical Stack</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    A hybrid combination of core technologies and certified curriculum design standards tailored to children's cognitive milestones.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/25 flex items-center justify-center text-brand-accent mb-6 shadow-md">
+                        <i class="fa-solid fa-code text-xl"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-3">Programming & Coding</h3>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Scratch & Blockly</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Python (Basics & Pygame)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Web Building (HTML, CSS, JS)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Interactive Game Design</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/25 flex items-center justify-center text-brand-accent mb-6 shadow-md">
+                        <i class="fa-solid fa-microchip text-xl"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-3">Robotics & IoT</h3>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Arduino IDE & ESP8266</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> BBC Micro:bit Circuits</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> LEGO EV3 & Spike Prime</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> VEX IQ Robotics League</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-brand-emerald mb-6 shadow-md">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-3">Responsible AI</h3>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> ML Teachable Machine</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Prompt Engineering for Kids</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Conversational Bots</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Ethics of GenAI Tools</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 mb-6 shadow-md">
+                        <i class="fa-solid fa-chalkboard-user text-xl"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-3">Educational Methods</h3>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> NGSS & CSTA Standards</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Inclusivity & IEP Technology</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> STEM Syllabus Architecture</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-brand-accent text-[9px]"></i> Active Inquiry Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Explorer Section -->
+    <section id="curriculum" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Age-Appropriate Design</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">Curriculum Pathway Explorer</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Click through the active grade brackets below to explore customized pedagogical outlines, hardware toolkits, and sample classroom milestones.
+                </p>
+            </div>
+
+            <!-- Tabs buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button onclick="setActiveGradeTab('elementary')" id="btn-tab-elementary" class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-tech font-bold border transition-all duration-300 bg-brand-600 border-brand-500 text-white shadow-neon-indigo">
+                    Elementary (K-5)
+                </button>
+                <button onclick="setActiveGradeTab('middle')" id="btn-tab-middle" class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-tech font-bold border transition-all duration-300 bg-slate-900 border-slate-800 text-slate-400 hover:text-white">
+                    Middle School (6-8)
+                </button>
+                <button onclick="setActiveGradeTab('high')" id="btn-tab-high" class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-tech font-bold border transition-all duration-300 bg-slate-900 border-slate-800 text-slate-400 hover:text-white">
+                    High School (9-12)
+                </button>
+            </div>
+
+            <!-- Grade Card Panels -->
+            <div id="grade-panel-container" class="max-w-4xl mx-auto">
+                <!-- Elementary Panel content -->
+                <div id="panel-elementary" class="glass-card rounded-3xl p-6 sm:p-10 space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-900 pb-6">
+                        <div>
+                            <span class="text-xs text-brand-accent uppercase font-tech font-bold">Grades K - 5</span>
+                            <h3 class="font-tech text-2xl font-bold text-white mt-1">Creative Block Coding & Robotics Play</h3>
+                        </div>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-500/10 border border-brand-500/25 text-brand-accent text-xs font-semibold max-w-max">
+                            Hardware: LEGO Spike Prime & Scratch 3.0
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Key Educational Pillars</h4>
+                            <ul class="space-y-2 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Computational logic using visual drag-and-drop puzzles</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Understanding sequential loops and conditional variables</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Constructing physical LEGO models with smart sensor elements</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Sample Project Outcome</h4>
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-900">
+                                <h5 class="text-xs font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-gamepad text-brand-accent"></i> The Smart Recycling Bot
+                                </h5>
+                                <p class="text-[11px] text-slate-500 mt-2">
+                                    Students assemble a physical waste sorting vehicle and code color sensors to distinguish recyclables from organic waste, receiving a visual success badge.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Panel content (hidden initially) -->
+                <div id="panel-middle" class="hidden glass-card rounded-3xl p-6 sm:p-10 space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-900 pb-6">
+                        <div>
+                            <span class="text-xs text-brand-accent uppercase font-tech font-bold">Grades 6 - 8</span>
+                            <h3 class="font-tech text-2xl font-bold text-white mt-1">Microcontroller Prototyping & Dynamic Web</h3>
+                        </div>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-500/10 border border-brand-500/25 text-brand-accent text-xs font-semibold max-w-max">
+                            Hardware: BBC Micro:bit & Python Basics
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Key Educational Pillars</h4>
+                            <ul class="space-y-2 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Transitioning from Scratch block stacks into raw Python scripts</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Wiring breadboards, active buzzers, and LED display matricies</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Basic HTML/CSS styling for student-driven showcase sites</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Sample Project Outcome</h4>
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-900">
+                                <h5 class="text-xs font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-cloud-sun text-brand-accent"></i> IoT Digital Greenhouse Monitor
+                                </h5>
+                                <p class="text-[11px] text-slate-500 mt-2">
+                                    Students program a BBC Micro:bit circuit to monitor real moisture values, illuminating a warn lamp and sounding active alarms if irrigation limits fail.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High Panel content (hidden initially) -->
+                <div id="panel-high" class="hidden glass-card rounded-3xl p-6 sm:p-10 space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-900 pb-6">
+                        <div>
+                            <span class="text-xs text-brand-accent uppercase font-tech font-bold">Grades 9 - 12</span>
+                            <h3 class="font-tech text-2xl font-bold text-white mt-1">Autonomous Systems, VEX Athletics & ML</h3>
+                        </div>
+                        <span class="px-3 py-1.5 rounded-lg bg-brand-500/10 border border-brand-500/25 text-brand-accent text-xs font-semibold max-w-max">
+                            Hardware: Arduino (C++), VEX V5 Robotics & AI Models
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Key Educational Pillars</h4>
+                            <ul class="space-y-2 text-xs text-slate-400">
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Real procedural programming syntax using Arduino C++ modules</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Training personalized ML classifiers utilizing webcam feeds</li>
+                                <li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand-emerald"></i> Algorithmic debugging, error logs, and structural design journals</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h4 class="font-tech text-sm font-bold text-slate-300">Sample Project Outcome</h4>
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-900">
+                                <h5 class="text-xs font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-eye text-brand-accent"></i> Gesture-Controlled Smart Rover
+                                </h5>
+                                <p class="text-[11px] text-slate-500 mt-2">
+                                    Students train a personal ML model to identify specific hand positions, triggering immediate wireless steering packets to an autonomous rover vehicle.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive CS Quiz Section -->
+    <section id="quiz" class="py-24 bg-slate-950/60 border-y border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Assessment Tool</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">CS & AI Readiness Diagnostic</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Quickly answer these diagnostic questions about your school's tech facilities to generate immediate course recommendations.
+                </p>
+            </div>
+
+            <!-- Quiz Wizard Card -->
+            <div class="max-w-xl mx-auto glass-card rounded-3xl p-6 sm:p-8 space-y-6 border border-slate-800 relative">
+                <!-- Progress bar -->
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                    <div id="quiz-progress" class="bg-brand-600 h-full w-1/3 transition-all duration-300"></div>
+                </div>
+
+                <!-- Step 1 questions -->
+                <div id="quiz-step-1" class="space-y-4">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold font-tech">Question 1 of 3</span>
+                    <h3 class="font-tech text-lg font-bold text-white">What equipment is available at your school?</h3>
+                    
+                    <div class="space-y-2.5">
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="hardware-avail" value="none" checked class="text-brand-600 focus:ring-brand-500">
+                            <span>Mainly standard computer screens (no hardware kits yet)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="hardware-avail" value="basic" class="text-brand-600 focus:ring-brand-500">
+                            <span>Basic microcontrollers (Micro:bits, basic sensors)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="hardware-avail" value="advanced" class="text-brand-600 focus:ring-brand-500">
+                            <span>Robotics platforms (LEGO Spike, VEX systems, Arduino units)</span>
+                        </label>
+                    </div>
+
+                    <button onclick="quizNextStep(2)" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                        Continue
+                    </button>
+                </div>
+
+                <!-- Step 2 questions (hidden) -->
+                <div id="quiz-step-2" class="hidden space-y-4">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold font-tech">Question 2 of 3</span>
+                    <h3 class="font-tech text-lg font-bold text-white">What are the target grade levels for this course?</h3>
+                    
+                    <div class="space-y-2.5">
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="grade-avail" value="elementary" checked class="text-brand-600 focus:ring-brand-500">
+                            <span>Elementary Level (Kindergarten to Grade 5)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="grade-avail" value="middle" class="text-brand-600 focus:ring-brand-500">
+                            <span>Middle School Level (Grade 6 to Grade 8)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="grade-avail" value="high" class="text-brand-600 focus:ring-brand-500">
+                            <span>High School Level (Grade 9 to Grade 12)</span>
+                        </label>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button onclick="quizNextStep(1)" class="w-1/3 py-3 rounded-xl bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold">
+                            Back
+                        </button>
+                        <button onclick="quizNextStep(3)" class="w-2/3 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3 questions (hidden) -->
+                <div id="quiz-step-3" class="hidden space-y-4">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold font-tech">Question 3 of 3</span>
+                    <h3 class="font-tech text-lg font-bold text-white">Choose your primary focus area:</h3>
+                    
+                    <div class="space-y-2.5">
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="focus-avail" value="coding" checked class="text-brand-600 focus:ring-brand-500">
+                            <span>Coding logic, interactive storytelling & web structures</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="focus-avail" value="robotics" class="text-brand-600 focus:ring-brand-500">
+                            <span>Physical robotics assembly, electronics & telemetry controls</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-slate-950 hover:bg-slate-900 rounded-xl border border-slate-900 cursor-pointer transition-colors text-xs">
+                            <input type="radio" name="focus-avail" value="ai" class="text-brand-600 focus:ring-brand-500">
+                            <span>AI concepts, safety boundaries & practical prompting</span>
+                        </label>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button onclick="quizNextStep(2)" class="w-1/3 py-3 rounded-xl bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold">
+                            Back
+                        </button>
+                        <button onclick="calculateQuizOutcome()" class="w-2/3 py-3 rounded-xl bg-brand-emerald hover:bg-emerald-500 text-white font-tech font-bold text-xs uppercase tracking-wider transition-all shadow-neon-cyan">
+                            Check Result
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Outcome results -->
+                <div id="quiz-result" class="hidden space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xl">
+                        <i class="fa-solid fa-graduation-cap animate-pulse"></i>
+                    </div>
+                    
+                    <div>
+                        <span class="text-[10px] text-brand-emerald uppercase tracking-widest font-semibold font-tech">Dynamic Recommendation</span>
+                        <h3 class="font-tech text-lg font-bold text-white mt-1" id="quiz-recommended-title">Interactive Python Games Course</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-2" id="quiz-recommended-desc">
+                            Your school has standard workstations. We suggest starting with digital block-to-text path programming, constructing visual Pygame milestones.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-900 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Suggested Duration:</span>
+                        <span class="font-bold text-white" id="quiz-recommended-duration">5 Days</span>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button onclick="resetQuiz()" class="w-1/3 py-3 rounded-xl bg-slate-900 text-slate-400 hover:text-white text-xs font-semibold border border-slate-800">
+                            Retry
+                        </button>
+                        <button onclick="applyQuizToForm()" class="w-2/3 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                            Apply to AI Planner
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready Workshops Catalog -->
+    <section id="workshops" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Classroom Catalogue</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">Featured Modular Workshops</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Quickly integrate high-impact courses in your school term. Select a course option below to auto-populate the inquiry forms.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Course card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-500/30 transition-all duration-300 flex flex-col h-full">
+                    <div class="relative h-44 bg-gradient-to-br from-indigo-950 to-slate-950 p-6 flex flex-col justify-between border-b border-slate-900">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-1 rounded bg-brand-500/10 border border-brand-500/25 text-brand-accent text-[9px] font-bold uppercase">Ages 8-12</span>
+                            <i class="fa-solid fa-shapes text-slate-700 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-accent uppercase font-semibold">Interactive Coding</span>
+                            <h3 class="font-tech text-xl font-bold text-white mt-0.5">Scratch Arcade</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Students explore the concepts of event-driven scripts, sequential logic, variables, and sprite parameters by coding arcade games.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-[10px] text-slate-500 border-t border-slate-900 pt-4">
+                                <span>Duration: <b class="text-slate-300">3 Days (6 Hrs)</b></span>
+                                <span>Hardware: <b class="text-slate-300">Web Browser</b></span>
+                            </div>
+                            <button onclick="selectWorkshop('Scratch Arcade', 'Elementary (Grades K-5)', '3-Day Mini Course (6 Hours)')" class="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 text-slate-300 hover:text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                                Select Course
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-brand-accent/30 transition-all duration-300 flex flex-col h-full">
+                    <div class="relative h-44 bg-gradient-to-br from-cyan-950 to-slate-950 p-6 flex flex-col justify-between border-b border-slate-900">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-1 rounded bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-[9px] font-bold uppercase">Ages 10-15</span>
+                            <i class="fa-solid fa-car text-slate-700 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-accent uppercase font-semibold">Circuitry Assembly</span>
+                            <h3 class="font-tech text-xl font-bold text-white mt-0.5">Arduino Autonomous Car</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Bridges software principles directly to physical hardware telemetry. Students build self-driving vehicles and program ultrasonic distance sensors.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-[10px] text-slate-500 border-t border-slate-900 pt-4">
+                                <span>Duration: <b class="text-slate-300">5 Days (10 Hrs)</b></span>
+                                <span>Hardware: <b class="text-slate-300">Arduino Uno</b></span>
+                            </div>
+                            <button onclick="selectWorkshop('Arduino Autonomous Car', 'Middle School (Grades 6-8)', '5-Day Intensive (10 Hours)')" class="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-accent text-slate-300 hover:text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                                Select Course
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-emerald-500/30 transition-all duration-300 flex flex-col h-full">
+                    <div class="relative h-44 bg-gradient-to-br from-emerald-950 to-slate-950 p-6 flex flex-col justify-between border-b border-slate-900">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-1 rounded bg-emerald-500/10 border border-emerald-500/25 text-brand-emerald text-[9px] font-bold uppercase">Ages 11-16</span>
+                            <i class="fa-solid fa-eye-low-vision text-slate-700 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-emerald uppercase font-semibold">Machine Learning</span>
+                            <h3 class="font-tech text-xl font-bold text-white mt-0.5">AI Models & Vision Systems</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Students assemble computer vision trackers, train custom gesture models, and explore practical AI capabilities with safety standards.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-[10px] text-slate-500 border-t border-slate-900 pt-4">
+                                <span>Duration: <b class="text-slate-300">1 Day (3 Hrs)</b></span>
+                                <span>Hardware: <b class="text-slate-300">PC with Webcam</b></span>
+                            </div>
+                            <button onclick="selectWorkshop('AI Models & Vision Systems', 'High School (Grades 9-12)', '1-Day Bootcamp (3 Hours)')" class="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 text-slate-300 hover:text-white font-tech font-bold text-xs uppercase tracking-wider transition-all">
+                                Select Course
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Proposal Syllabus Planner -->
+    <section id="planner" class="py-24 bg-slate-950/60 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <div class="text-xs font-semibold uppercase tracking-widest text-brand-accent font-tech">Custom Builder</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-tech text-white">AI Workshop Syllabus Planner</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Select your custom classroom criteria. Our built-in Gemini LLM engine will instantly draft a bespoke course syllabus and hardware list aligned to academic guidelines.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Configuration panel form -->
+                <div class="lg:col-span-6 glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-900">
+                        <h3 class="font-tech text-base font-bold text-white">Syllabus Parameters</h3>
+                        <span class="text-[10px] text-brand-emerald font-semibold uppercase flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-ping"></span> Live Builder
+                        </span>
+                    </div>
+
+                    <form id="syllabus-form" onsubmit="generateSyllabus(event)" class="space-y-4 flex-1">
+                        <div>
+                            <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">School / Academy Name</label>
+                            <input type="text" id="form-school-name" required placeholder="e.g., Lincoln Academy Prep" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">Target Student Grade</label>
+                                <select id="form-grade-range" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors">
+                                    <option value="Elementary (Grades K-5)">Elementary (K-5)</option>
+                                    <option value="Middle School (Grades 6-8)">Middle School (6-8)</option>
+                                    <option value="High School (Grades 9-12)">High School (9-12)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">Term Duration</label>
+                                <select id="form-duration-range" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors">
+                                    <option value="1-Day Bootcamp (3 Hours)">1-Day (3 Hrs)</option>
+                                    <option value="3-Day Mini Course (6 Hours)">3-Day (6 Hrs)</option>
+                                    <option value="5-Day Intensive (10 Hours)">5-Day (10 Hrs)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">Subject Track Highlight</label>
+                            <select id="form-subject-highlight" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors">
+                                <option value="Visual Coding & Game Logic (Scratch, Blockly)">Visual Coding & Game Logic (Scratch)</option>
+                                <option value="Physical Hardware Integration (Micro:bit, Buzzers)">Physical Hardware Integration (Micro:bit)</option>
+                                <option value="Machine Learning & Generative AI Literacy">Machine Learning & Generative AI Literacy</option>
+                                <option value="Introductory Python (Graphics, Interactive Modules)">Introductory Python (Graphics)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">Special Directives & Demographics</label>
+                            <textarea id="form-special-directives" placeholder="e.g., Include CSTA standards, accommodate complete beginners." rows="3" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors resize-none"></textarea>
+                        </div>
+
+                        <div class="pb-2">
+                            <label class="block text-[10px] font-semibold uppercase text-slate-500 tracking-wider mb-1.5">Your Contact Email Address</label>
+                            <input type="email" id="form-contact-email" required placeholder="contact@yourschool.org" class="w-full bg-slate-950 border border-slate-800 focus:border-brand-500 rounded-xl px-4 py-2.5 text-xs text-white outline-none transition-colors">
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-accent hover:from-brand-500 hover:to-brand-accent font-tech font-bold text-xs uppercase tracking-widest text-white transition-all shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Custom Syllabus Blueprint
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Live Markdown Output Sandbox Pane -->
+                <div class="lg:col-span-6 glass-card rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between min-h-[480px]">
+                    <div class="px-5 py-4 bg-slate-950/80 border-b border-slate-900 flex items-center justify-between shrink-0">
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                            <span class="font-mono text-[10px] text-slate-500 pl-2">Syllabus_Output.md</span>
+                        </div>
+                        <button onclick="copyBlueprintToClipboard()" class="px-2.5 py-1 text-[10px] text-slate-400 hover:text-white bg-slate-900 border border-slate-800 rounded-md transition-colors flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> Copy Text
+                        </button>
+                    </div>
+
+                    <!-- Sandbox dynamic body -->
+                    <div class="p-6 sm:p-8 flex-1 overflow-y-auto max-h-[500px]" id="syllabus-output-parent">
+                        <!-- Initial state -->
+                        <div id="syllabus-default" class="h-full flex flex-col items-center justify-center text-center space-y-4">
+                            <div class="w-14 h-14 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600">
+                                <i class="fa-regular fa-file-code text-xl"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-tech text-sm font-bold text-slate-300">No Syllabus Blueprint Crafted</h4>
+                                <p class="text-[11px] text-slate-500 max-w-xs mx-auto">
+                                    Configure parameters in the builder form or click "Select Course" on any catalog item to build a blueprint.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div id="syllabus-loading" class="hidden h-full flex flex-col items-center justify-center text-center space-y-4">
+                            <div class="relative w-10 h-10">
+                                <div class="absolute inset-0 rounded-full border-2 border-slate-800"></div>
+                                <div class="absolute inset-0 rounded-full border-2 border-brand-500 border-t-transparent animate-spin"></div>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-tech text-xs font-bold text-brand-accent animate-pulse">Consulting Sarah's Generative AI Engine...</h4>
+                                <p class="text-[10px] text-slate-600">Calculating curriculum metrics and structuring hardware guidelines...</p>
+                            </div>
+                        </div>
+
+                        <!-- Syllabus text container -->
+                        <div id="syllabus-output-box" class="hidden text-left font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-wrap selection:bg-brand-500 selection:text-white"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Messenger Desk widget -->
+    <div id="chat-desktop" class="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
+        <!-- Floating active node button -->
+        <button onclick="toggleChat()" class="pointer-events-auto w-14 h-14 rounded-full bg-gradient-to-tr from-brand-600 to-brand-accent hover:from-brand-500 hover:to-brand-600 flex items-center justify-center text-white shadow-neon-indigo transform hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all relative">
+            <i class="fa-solid fa-robot text-lg"></i>
+            <span class="absolute top-0 right-0 w-3 h-3 bg-brand-emerald border-2 border-slate-950 rounded-full animate-bounce"></span>
+        </button>
+
+        <!-- Dynamic Messenger Board -->
+        <div id="chat-dialogue-pane" class="hidden pointer-events-auto mt-4 w-80 sm:w-[400px] h-[500px] glass-card rounded-2xl flex-col shadow-2xl overflow-hidden transition-all duration-300 transform origin-bottom-right">
+            <!-- Desk header -->
+            <div class="px-5 py-4 bg-slate-950 border-b border-slate-900 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center text-white font-tech font-bold text-sm">
+                        <i class="fa-solid fa-robot text-xs animate-bounce"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-tech font-bold text-xs text-white">Sarah Jenkins AI Desk</h4>
+                        <span class="block text-[9px] text-brand-emerald font-semibold tracking-wider flex items-center gap-1 uppercase">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-ping"></span> ONLINE
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-500 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            </div>
+
+            <!-- Scroll messages area -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-950/45" id="chat-dialogue-box">
+                <!-- Initial welcoming agent reply -->
+                <div class="flex gap-2.5 text-left">
+                    <div class="w-7 h-7 rounded-full bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-accent shrink-0 text-[10px] font-tech font-bold">AI</div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none px-3.5 py-2.5 text-xs text-slate-300 max-w-[80%] leading-relaxed">
+                        Hello! I am Sarah Jenkins' automated educational assistant. You can ask me details about Sarah's pedagogical guidelines, course pricing structures, VEX preparative challenges, or custom microcontrollers.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Prompt Quick Suggestions -->
+            <div class="p-2.5 bg-slate-950/80 border-t border-slate-900 flex flex-wrap gap-1.5" id="chat-suggestions">
+                <button onclick="askQuickSuggestion('What hardware tools do you use?')" class="px-2.5 py-1 bg-slate-900 border border-slate-800/80 rounded-lg text-[9px] text-slate-400 hover:text-white hover:border-brand-500/30 transition-all">🛠️ Tools?</button>
+                <button onclick="askQuickSuggestion('Do you teach high school robotics?')" class="px-2.5 py-1 bg-slate-900 border border-slate-800/80 rounded-lg text-[9px] text-slate-400 hover:text-white hover:border-brand-500/30 transition-all">🤖 High School Robotics?</button>
+                <button onclick="askQuickSuggestion('What are your classroom rates?')" class="px-2.5 py-1 bg-slate-900 border border-slate-800/80 rounded-lg text-[9px] text-slate-400 hover:text-white hover:border-brand-500/30 transition-all">💰 Rates?</button>
+            </div>
+
+            <!-- Chat active inputs form -->
+            <div class="p-3 bg-slate-950 border-t border-slate-900">
+                <form id="chat-input-form" onsubmit="sendDeskMessage(event)" class="flex items-center gap-2">
+                    <input type="text" id="chat-input-field" placeholder="Ask Sarah's assistant a question..." class="flex-1 bg-slate-900 border border-slate-800/80 focus:border-brand-500 rounded-xl px-3 py-2 text-xs text-white outline-none transition-colors">
+                    <button type="submit" class="w-9 h-9 rounded-xl bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition-colors shrink-0">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer layout -->
+    <footer class="bg-slate-950 border-t border-slate-900 pt-16 pb-12 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-900">
+                <!-- Brand details -->
+                <div class="md:col-span-5 space-y-6">
+                    <a href="#hero" class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center shadow-lg shadow-brand-600/20">
+                            <i class="fa-solid fa-graduation-cap text-white text-base"></i>
+                        </div>
+                        <div>
+                            <span class="font-tech font-bold text-base tracking-wider text-white">SARAH JENKINS</span>
+                            <span class="block text-[9px] text-brand-accent tracking-wider font-semibold uppercase">STEM & AI Educator</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Designing adaptive coding paths, physical robotics leagues, and safety prompt matrices for next-generation technology literacy. 
+                    </p>
+                    <div class="flex items-center space-x-3 pt-1">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800/60 text-slate-400 hover:text-white hover:border-brand-500/30 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800/60 text-slate-400 hover:text-white hover:border-brand-500/30 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-github text-xs"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800/60 text-slate-400 hover:text-white hover:border-brand-500/30 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-twitter text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Links -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="font-tech text-white font-semibold text-xs tracking-wider uppercase">Quick Links</h4>
+                    <ul class="space-y-2 text-[11px]">
+                        <li><a href="#about" class="hover:text-brand-accent transition-colors">Philosophy</a></li>
+                        <li><a href="#sandbox" class="hover:text-brand-accent transition-colors">Interactive Sandbox</a></li>
+                        <li><a href="#skills" class="hover:text-brand-accent transition-colors">Technical Stack</a></li>
+                        <li><a href="#curriculum" class="hover:text-brand-accent transition-colors">Curricula Matrix</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academic Standards references -->
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-tech text-white font-semibold text-xs tracking-wider uppercase">Classroom Alignment</h4>
+                    <div class="flex flex-wrap gap-2 text-[10px]">
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">Scratch 3.0 Blockly</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">Arduino IDE (C++)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">MicroPython IoT</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">CSTA K-12 Rules</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">VEX IQ Competitions</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-850 text-slate-400">NGSS Science Alignments</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-12 text-[11px] text-slate-600">
+                <p>&copy; 2026 Sarah Jenkins, M.Ed. All rights reserved. Integrating Gemini API capabilities.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Informative Action Toast Notification -->
+    <div id="toast-widget" class="fixed bottom-6 left-6 z-50 glass-card px-4 py-3 rounded-2xl border border-brand-accent/20 text-brand-accent flex items-center gap-2.5 shadow-lg transform -translate-x-[150%] transition-transform duration-300 text-xs font-semibold">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toast-widget-msg">Action Successful!</span>
+    </div>
+
+    <!-- Sandbox Game Loop & Interface Controls script -->
+    <script>
+        // Set fallback endpoint configurations
+        const geminiApiKey = "";
+        const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${geminiApiKey}`;
+
+        // Global Robot coordinates
+        const robotPos = { x: 1, y: 1 };
+        const goalPos = { x: 8, y: 3 };
+        let sandboxSteps = 0;
+        const gridColumns = 10;
+        const gridRows = 5;
+
+        // Header Scrolling Dynamic visual
+        const headerEl = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                headerEl.classList.add('py-2', 'bg-slate-950/95');
+                headerEl.classList.remove('h-20');
+            } else {
+                headerEl.classList.remove('py-2', 'bg-slate-950/95');
+                headerEl.classList.add('h-20');
+            }
+        });
+
+        // Toggle mobile drawer
+        const drawerBtn = document.getElementById('mobile-menu-btn');
+        const drawerMenu = document.getElementById('mobile-menu');
+        drawerBtn.addEventListener('click', () => {
+            drawerMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            drawerMenu.classList.add('hidden');
+        }
+
+        // Initialize Robot Sandbox Canvas Board
+        const canvas = document.getElementById('robot-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Handle canvas auto sizing layout rules
+        function resizeCanvas() {
+            const parentWidth = canvas.parentNode.clientWidth;
+            canvas.width = parentWidth;
+            canvas.height = parentWidth / 2; // maintain 2:1 aspect ratio
+            drawRobotGrid();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('load', () => {
+            resizeCanvas();
+        });
+
+        // Draw RoboGrid Layout
+        function drawRobotGrid() {
+            if (!canvas) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const cellW = canvas.width / gridColumns;
+            const cellH = canvas.height / gridRows;
+
+            // Draw clean subtle grid backgrounds
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= gridColumns; i++) {
+                ctx.beginPath();
+                ctx.moveTo(i * cellW, 0);
+                ctx.lineTo(i * cellW, canvas.height);
+                ctx.stroke();
+            }
+            for (let j = 0; j <= gridRows; j++) {
+                ctx.beginPath();
+                ctx.moveTo(0, j * cellH);
+                ctx.lineTo(canvas.width, j * cellH);
+                ctx.stroke();
+            }
+
+            // Draw target goal chip (SVG style shape)
+            const goalCenterX = (goalPos.x - 0.5) * cellW;
+            const goalCenterY = (goalPos.y - 0.5) * cellH;
+            const size = Math.min(cellW, cellH) * 0.45;
+
+            ctx.fillStyle = "rgba(6, 182, 212, 0.15)";
+            ctx.strokeStyle = "#06b6d4";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(goalCenterX, goalCenterY, size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Inner chip detail lines
+            ctx.fillStyle = "#06b6d4";
+            ctx.font = "bold 10px sans-serif";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("CPU", goalCenterX, goalCenterY);
+
+            // Draw Robot element
+            const rX = (robotPos.x - 0.5) * cellW;
+            const rY = (robotPos.y - 0.5) * cellH;
+            const rSize = Math.min(cellW, cellH) * 0.4;
+
+            // Robo outer sphere
+            ctx.fillStyle = "rgba(99, 102, 241, 0.25)";
+            ctx.strokeStyle = "#6366f1";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(rX, rY, rSize, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Eyes detail
+            ctx.fillStyle = "#ffffff";
+            ctx.beginPath();
+            ctx.arc(rX - rSize*0.3, rY - rSize*0.1, rSize*0.15, 0, Math.PI * 2);
+            ctx.arc(rX + rSize*0.3, rY - rSize*0.1, rSize*0.15, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Smile detail
+            ctx.strokeStyle = "#ffffff";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(rX, rY + rSize*0.15, rSize*0.2, 0, Math.PI);
+            ctx.stroke();
+        }
+
+        // Move Robot through direct logic
+        function stepRobot(dir) {
+            if (dir === 'UP' && robotPos.y > 1) robotPos.y--;
+            if (dir === 'DOWN' && robotPos.y < gridRows) robotPos.y++;
+            if (dir === 'LEFT' && robotPos.x > 1) robotPos.x--;
+            if (dir === 'RIGHT' && robotPos.x < gridColumns) robotPos.x++;
+
+            sandboxSteps++;
+            document.getElementById('sandbox-steps').innerText = sandboxSteps;
+            drawRobotGrid();
+
+            // Verify win condition
+            if (robotPos.x === goalPos.x && robotPos.y === goalPos.y) {
+                document.getElementById('sandbox-success').classList.remove('hidden');
+                triggerToast("Goal Reached! Micro-bot successfully docked.");
+            }
+        }
+
+        // Parse and Execute CLI Terminal prompts
+        function runTerminalCommand() {
+            const field = document.getElementById('terminal-input');
+            const cmd = field.value.trim().toLowerCase();
+            field.value = '';
+
+            if (cmd === 'robot.moveright()') {
+                stepRobot('RIGHT');
+            } else if (cmd === 'robot.moveleft()') {
+                stepRobot('LEFT');
+            } else if (cmd === 'robot.moveup()') {
+                stepRobot('UP');
+            } else if (cmd === 'robot.movedown()') {
+                stepRobot('DOWN');
+            } else {
+                triggerToast("Syntax error. Try 'robot.moveRight()'");
+            }
+        }
+
+        // Reset Sandbox settings
+        function resetRobotDemo() {
+            robotPos.x = 1;
+            robotPos.y = 1;
+            sandboxSteps = 0;
+            document.getElementById('sandbox-steps').innerText = sandboxSteps;
+            document.getElementById('sandbox-success').classList.add('hidden');
+            drawRobotGrid();
+        }
+
+        // Toast Trigger Utility
+        function triggerToast(msg) {
+            const toast = document.getElementById('toast-widget');
+            document.getElementById('toast-widget-msg').innerText = msg;
+            toast.classList.remove('-translate-x-[150%]');
+            setTimeout(() => {
+                toast.classList.add('-translate-x-[150%]');
+            }, 3000);
+        }
+    </script>
+
+    <script>
+        // Curriculum explorer Grade Bracket switching
+        function setActiveGradeTab(bracket) {
+            const tabs = ['elementary', 'middle', 'high'];
+            tabs.forEach(item => {
+                const button = document.getElementById(`btn-tab-${item}`);
+                const panel = document.getElementById(`panel-${item}`);
+                
+                if (item === bracket) {
+                    button.className = "px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-tech font-bold border transition-all duration-300 bg-brand-600 border-brand-500 text-white shadow-neon-indigo";
+                    panel.classList.remove('hidden');
+                } else {
+                    button.className = "px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-tech font-bold border transition-all duration-300 bg-slate-900 border-slate-800 text-slate-400 hover:text-white";
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+    <script>
+        // Assessment Quiz parameters
+        let currentQuizStep = 1;
+
+        function quizNextStep(step) {
+            currentQuizStep = step;
+            const progressPct = (step / 3) * 100;
+            document.getElementById('quiz-progress').style.width = `${progressPct}%`;
+
+            // Display current block context
+            for (let i = 1; i <= 3; i++) {
+                const pane = document.getElementById(`quiz-step-${i}`);
+                if (i === step) {
+                    pane.classList.remove('hidden');
+                } else {
+                    pane.classList.add('hidden');
+                }
+            }
+            document.getElementById('quiz-result').classList.add('hidden');
+        }
+
+        // Calculate and Render diagnostic recommendation
+        function calculateQuizOutcome() {
+            const hardware = document.querySelector('input[name="hardware-avail"]:checked').value;
+            const grade = document.querySelector('input[name="grade-avail"]:checked').value;
+            const focus = document.querySelector('input[name="focus-avail"]:checked').value;
+
+            // Hide step blocks
+            document.getElementById('quiz-step-3').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = `100%`;
+
+            let recTitle = "Visual Game Development with Scratch";
+            let recDesc = "Based on standard screen setups and K-5 goals, we suggest constructing active gaming logic with Scratch loops and conditional event structures.";
+            let recDuration = "3 Days (6 Hours)";
+
+            if (hardware === 'basic' || hardware === 'advanced') {
+                if (focus === 'robotics') {
+                    if (grade === 'elementary') {
+                        recTitle = "Spike Prime Mechanical Rovers";
+                        recDesc = "Perfect for K-5 with physical kits. Students assemble modular rovers, coding simple color vectors and bump detection actions.";
+                        recDuration = "5 Days (10 Hours)";
+                    } else if (grade === 'middle') {
+                        recTitle = "BBC Micro:bit Weather Stations";
+                        recDesc = "Great for middle schools with microcontrollers. Wiring breadboards, reading telemetry curves, and printing data metrics.";
+                        recDuration = "3 Days (6 Hours)";
+                    } else {
+                        recTitle = "VEX Robotics Athlete Training";
+                        recDesc = "High school robotics tournament focus. Assembly guides, procedural C++ loops, autonomous paths, and driver controls.";
+                        recDuration = "5 Days (10 Hours)";
+                    }
+                } else if (focus === 'ai') {
+                    recTitle = "Teachable Vision & Hand Gesture ML";
+                    recDesc = "Using webcam nodes and Micro:bits. Students capture images, calculate visual weights, and steer microcontrollers using hand positions.";
+                    recDuration = "2 Days (4 Hours)";
+                } else {
+                    recTitle = "Interactive Python Games (Pygame)";
+                    recDesc = "Focus on transitional textual syntax. Middle/High students explore coordinates, keyboard loops, and modular game components.";
+                    recDuration = "5 Days (10 Hours)";
+                }
+            } else {
+                // screen setups only
+                if (focus === 'ai') {
+                    recTitle = "Safety boundaries & Prompt Engineering";
+                    recDesc = "Understanding how LLMs digest text queries. Middle/High schoolers write clear parameters and design logical conversational assistants.";
+                    recDuration = "1 Day (3 Hours)";
+                } else if (grade === 'high') {
+                    recTitle = "Interactive Web Applications (HTML/CSS/JS)";
+                    recDesc = "High school text progression. Coding portfolios, styles, functional actions, and dynamic page structures.";
+                    recDuration = "5 Days (10 Hours)";
+                }
+            }
+
+            document.getElementById('quiz-recommended-title').innerText = recTitle;
+            document.getElementById('quiz-recommended-desc').innerText = recDesc;
+            document.getElementById('quiz-recommended-duration').innerText = recDuration;
+        }
+
+        // Reset wizard parameters
+        function resetQuiz() {
+            quizNextStep(1);
+        }
+
+        // Apply Quiz details directly to AI Syllabus Builder forms
+        function applyQuizToForm() {
+            const title = document.getElementById('quiz-recommended-title').innerText;
+            const duration = document.getElementById('quiz-recommended-duration').innerText;
+            
+            // Map form dropdown options
+            const focus = document.querySelector('input[name="focus-avail"]:checked').value;
+            const grade = document.querySelector('input[name="grade-avail"]:checked').value;
+
+            const formGrade = document.getElementById('form-grade-range');
+            if (grade === 'elementary') formGrade.value = "Elementary (Grades K-5)";
+            else if (grade === 'middle') formGrade.value = "Middle School (Grades 6-8)";
+            else formGrade.value = "High School (Grades 9-12)";
+
+            const formSubject = document.getElementById('form-subject-highlight');
+            if (focus === 'coding') formSubject.value = "Visual Coding & Game Logic (Scratch, Blockly)";
+            else if (focus === 'robotics') formSubject.value = "Physical Hardware Integration (Micro:bit, Buzzers)";
+            else if (focus === 'ai') formSubject.value = "Machine Learning & Generative AI Literacy";
+
+            document.getElementById('form-special-directives').value = `Auto-configured based on Diagnostic: "${title}". Align closely to recommended ${duration} scope.`;
+
+            document.getElementById('planner').scrollIntoView({ behavior: 'smooth' });
+            triggerToast("Diagnostic outcome applied to AI Planner!");
+        }
+    </script>
+
+    <script>
+        // Auto pre-fill builder when catalog items are selected
+        function selectWorkshop(title, grades, duration) {
+            document.getElementById('form-school-name').focus();
+
+            const formGrade = document.getElementById('form-grade-range');
+            formGrade.value = grades;
+
+            const formDuration = document.getElementById('form-duration-range');
+            formDuration.value = duration;
+
+            const formSubject = document.getElementById('form-subject-highlight');
+            if (title.includes('Scratch')) {
+                formSubject.value = "Visual Coding & Game Logic (Scratch, Blockly)";
+            } else if (title.includes('Arduino')) {
+                formSubject.value = "Physical Hardware Integration (Micro:bit, Buzzers)";
+            } else if (title.includes('AI')) {
+                formSubject.value = "Machine Learning & Generative AI Literacy";
+            }
+
+            document.getElementById('form-special-directives').value = `Pre-loaded workshop format: "${title}". Optimize guidelines for beginners.`;
+
+            document.getElementById('planner').scrollIntoView({ behavior: 'smooth' });
+            triggerToast(`Catalog course "${title}" loaded.`);
+        }
+    </script>
+
+    <!-- LLM Generation and Desk assistant script -->
+    <script>
+        // Exponential backoff network fetch helper
+        async function robustFetch(url, options, retries = 3, delay = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP network error code: ${response.status}`);
+                }
+                return response;
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return robustFetch(url, options, retries - 1, delay * 2);
+                }
+                throw error;
+            }
+        }
+
+        // Call Gemini Flash API to generate dynamic customized lesson plans
+        async function generateSyllabus(event) {
+            event.preventDefault();
+
+            const school = document.getElementById('form-school-name').value;
+            const grades = document.getElementById('form-grade-range').value;
+            const duration = document.getElementById('form-duration-range').value;
+            const subject = document.getElementById('form-subject-highlight').value;
+            const directives = document.getElementById('form-special-directives').value;
+            const email = document.getElementById('form-contact-email').value;
+
+            // Swap visual panel states
+            document.getElementById('syllabus-default').classList.add('hidden');
+            document.getElementById('syllabus-output-box').classList.add('hidden');
+            document.getElementById('syllabus-loading').classList.remove('hidden');
+
+            const systemInstruction = `You are Sarah Jenkins, M.Ed., a highly skilled school STEM, coding, and robotics educator with over 5 years of certified classroom experience. Draft a premium, detailed, and highly engaging classroom workshop syllabus proposal blueprint based on the parameters requested. Address the institution professionally with custom greetings, outline required hardware tools, lesson-by-lesson timeline milestones, active safety guidelines, and relevant educational standard alignments (like NGSS and CSTA). Use markdown structures. Ensure a welcoming and technically excellent tone.`;
+
+            const userPrompt = `Produce a personalized school syllabus proposal.
+            - School Name: ${school}
+            - Student Grade Range: ${grades}
+            - Course Duration: ${duration}
+            - Subject Track Focus: ${subject}
+            - Custom Notes & Requirements: ${directives}
+            - Institutional Contact details: ${email}
+            
+            Deliver a highly specific lesson curriculum blueprint with hardware items checklist and learning metrics. Include a polite sign-off from Sarah Jenkins.`;
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: userPrompt }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemInstruction }]
+                    }
+                };
+
+                const response = await robustFetch(geminiApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const outputText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (outputText) {
+                    const outputBox = document.getElementById('syllabus-output-box');
+                    outputBox.innerText = outputText;
+                    document.getElementById('syllabus-loading').classList.add('hidden');
+                    outputBox.classList.remove('hidden');
+                    triggerToast("New Custom Syllabus crafted by AI!");
+                } else {
+                    throw new Error("No text response returned in generative content stream.");
+                }
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('syllabus-loading').classList.add('hidden');
+                document.getElementById('syllabus-default').classList.remove('hidden');
+                triggerToast("LLM generation timed out. Please try building again shortly.");
+            }
+        }
+
+        // Copy Syllabus content output to user clipboard
+        function copyBlueprintToClipboard() {
+            const container = document.getElementById('syllabus-output-box');
+            if (container.classList.contains('hidden') || !container.innerText) {
+                triggerToast("Generate a syllabus first before copying.");
+                return;
+            }
+
+            // Fallback selection copy for various iframe security profiles
+            const auxField = document.createElement('textarea');
+            auxField.value = container.innerText;
+            document.body.appendChild(auxField);
+            auxField.select();
+            document.execCommand('copy');
+            document.body.removeChild(auxField);
+
+            triggerToast("Copied syllabus markdown to clipboard.");
+        }
+
+        // Toggle virtual assistant desk panels
+        function toggleChat() {
+            const dialoguePane = document.getElementById('chat-dialogue-pane');
+            if (dialoguePane.classList.contains('hidden')) {
+                dialoguePane.classList.remove('hidden');
+                dialoguePane.classList.add('flex');
+                document.getElementById('chat-dialogue-box').scrollTop = document.getElementById('chat-dialogue-box').scrollHeight;
+            } else {
+                dialoguePane.classList.remove('flex');
+                dialoguePane.classList.add('hidden');
+            }
+        }
+
+        // Push chat bubbles inside messenger interface
+        function appendBubbleMessage(sender, text) {
+            const parentBox = document.getElementById('chat-dialogue-box');
+            const rowDiv = document.createElement('div');
+            rowDiv.className = `flex gap-2.5 text-left ${sender === 'user' ? 'justify-end' : ''}`;
+
+            const iconHtml = sender === 'user'
+                ? `<div class="w-7 h-7 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 shrink-0 text-[10px] font-bold">YOU</div>`
+                : `<div class="w-7 h-7 rounded-full bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-accent shrink-0 text-[10px] font-tech font-bold">AI</div>`;
+
+            const bodyHtml = `<div class="${sender === 'user' ? 'bg-brand-600 text-white rounded-br-none' : 'bg-slate-900 border border-slate-800/80 rounded-tl-none'} rounded-2xl px-3.5 py-2.5 text-xs text-slate-300 max-w-[80%] leading-relaxed">${text}</div>`;
+
+            if (sender === 'user') {
+                rowDiv.innerHTML = bodyHtml + iconHtml;
+            } else {
+                rowDiv.innerHTML = iconHtml + bodyHtml;
+            }
+
+            parentBox.appendChild(rowDiv);
+            parentBox.scrollTop = parentBox.scrollHeight;
+        }
+
+        // Trigger swift suggestion clicks
+        function askQuickSuggestion(suggestionText) {
+            appendBubbleMessage('user', suggestionText);
+            fetchDeskAssistantResponse(suggestionText);
+        }
+
+        // Handle typing forms inside chatbot desk
+        function sendDeskMessage(event) {
+            event.preventDefault();
+            const inputField = document.getElementById('chat-input-field');
+            const message = inputField.value.trim();
+            if (!message) return;
+
+            inputField.value = '';
+            appendBubbleMessage('user', message);
+            fetchDeskAssistantResponse(message);
+        }
+
+        // Direct communication query to Gemini Flash for rapid answers
+        async function fetchDeskAssistantResponse(queryText) {
+            const systemInstruction = `You are a friendly and polite AI Virtual Assistant running the educational inquiry desk of Sarah Jenkins, M.Ed. (certified STEM, Computer Science, and physical robotics classroom instructor with over 5 years of school teaching background). Answer users' questions concisely within 2-3 sentences max. Promote Sarah's certified background, interactive class methodologies, curriculum rates (starting at $120/hr for customized workshops), and VEX robotics coaching history. Maintain high professional standards.`;
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: queryText }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemInstruction }]
+                    }
+                };
+
+                const response = await robustFetch(geminiApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const assistantText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (assistantText) {
+                    appendBubbleMessage('assistant', assistantText);
+                } else {
+                    appendBubbleMessage('assistant', "I'm having difficulty connecting to Sarah's scheduler database. Could you please resend that inquiry?");
+                }
+
+            } catch (err) {
+                console.error(err);
+                appendBubbleMessage('assistant', "Connection error. Please try sending your diagnostic query again soon.");
+            }
+        }
+    </script>
+</body>
+</html>
